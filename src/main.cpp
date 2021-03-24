@@ -1,11 +1,14 @@
 #include <iostream>
 #include <vector>
+#include "image.h"
+#include "resample.h"
 using namespace std;
 
 int main() {
-	vector<vector<int>> v;
-	v.push_back(vector<int>(2));
-	cout << v[0][0] << endl;
-	cout << "hello" << endl;
+	Image img;
+	img.load_test_img3x2();
+	img.print_img();
+	nearestNeighborInterpolation(img, 4);
+	img.print_img();
 	return 0;
 }
