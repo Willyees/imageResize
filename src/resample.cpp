@@ -10,15 +10,14 @@ void nearestNeighborInterpolation(Image& img, int scaling_factor) {
 	int col_o = img._col_length;
 	int row_n = row_o * scaling_factor;
 	int col_n = col_o * scaling_factor;
+	int scaling = row_n * col_n / row_o / col_o;
 
-	vector<vector<int>> v;
-	v.reserve(row_n);
+	vector<int> v(row_n * col_n);
 	for (int row_idx = 0; row_idx < row_n; ++row_idx) {
-		vector<int> row(col_n);
 		for (int col_idx = 0; col_idx < col_n; ++col_idx) {
-			row[col_idx] = img._img[row_idx / scaling_factor][col_idx / scaling_factor];
+			int idx = row_idx * col_idx + col_idx;
+			v[idx] = img._img[(idx / col_o / row_o )/ scaling_factor];
 		}
-		v.push_back(row);
 	}
 	//updating the row and col length in the img after the interpolation
 	img._img = v;//using copy assing operator, move should be faster. TODO: time it!

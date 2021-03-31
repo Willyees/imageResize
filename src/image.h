@@ -3,8 +3,9 @@
 #include <string>
 
 class Image {
+
 public:
-	std::vector<std::vector<int>> _img;//each internal vector is a row (could implement as a single long vector in case it's faster)
+	std::vector<int> _img;//single vector containing all pixels. have to refer to _row_length to calculate the rows
 	int _row_length;//row length, referring to the complete image. an image being interpolated will have the original _row_length stored
 	int _col_length;
 //public: //todo: set the private memebrs again, and set friends methods	
@@ -15,7 +16,8 @@ public:
 	//DEBUG	
 	void load_test_img2x2();
 	void load_test_img3x2();
-	void asd();
+	inline int _getRow(int idx);
+	inline int _getIdx(int row, int col);
 
 	void print_img();
 };
