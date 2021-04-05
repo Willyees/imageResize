@@ -18,7 +18,7 @@ void nearestNeighborInterpolation(Image& img, int scaling_factor) {
 		for (int col_idx = 0; col_idx < col_n; ++col_idx) {
 			row[col_idx] = img._img[row_idx / scaling_factor][col_idx / scaling_factor];
 		}
-		v.push_back(row);
+		v.push_back(move(row));
 	}
 	//updating the row and col length in the img after the interpolation
 	img._img = v;//using copy assing operator, move should be faster. TODO: time it!
