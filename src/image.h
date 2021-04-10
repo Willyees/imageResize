@@ -17,7 +17,7 @@ public:
 	void load_test_img2x2();
 	void load_test_img3x2();
 	inline int _getRow(int idx);
-	inline int _getIdx(int row, int col);
+	int _getIdx(int row, int col);
 
 	void print_img();
 };
