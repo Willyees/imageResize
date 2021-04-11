@@ -41,23 +41,23 @@ void Image::load_test_img2x2() {
 	//_img = { {1,2,3,4}, {5,6,7,8}, {9,10,11,12} };
 }
 
-void Image::load_test_img3x2() {
+void Image::load_test_img2x3() {
 	_img = {1,4, 6, 8, 13, 19};
-	_row_length = 2;
-	_col_length = 3;
+	_row_length = 3;
+	_col_length = 2;
 }
 
 void Image::print_img() {
 	char prev = cout.fill('0');
-	for (size_t row = 0; row < _row_length; ++row) {
-		for (size_t col = 0; col < _col_length; ++col)
+	for (size_t row = 0; row < _col_length; ++row) {
+		for (size_t col = 0; col < _row_length; ++col)
 			cout << setw(2) << _img.at(row * _row_length + col) << " ";
 		cout << endl;
 	}
 	cout << "-----" << endl;
 	for (size_t i = 0; i < _img.size(); ++i) {
 		cout << setw(2) << _img[i] << " ";
-		if ((i % (_col_length -1)) == 0 && i != 0)
+		if (((i + 1) % _row_length) == 0)
 			cout << endl;
 	}
 	cout.fill(prev);

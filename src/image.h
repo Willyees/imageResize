@@ -15,7 +15,7 @@ public:
 
 	//DEBUG	
 	void load_test_img2x2();
-	void load_test_img3x2();
+	void load_test_img2x3();
 	inline int _getRow(int idx);
 	int _getIdx(int row, int col);
 
