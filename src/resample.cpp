@@ -6,8 +6,8 @@ using namespace std;
 * this method will perform the whole scaling, not very performant because it is O(N*scaling_factor) extra space needed with loads of copies from temp vectors to _img vector
 */
 void nearestNeighborInterpolation(Image& img, int scaling_factor) {
-	int row_o = img._row_length;
-	int col_o = img._col_length;
+	int row_o = img._col_length;
+	int col_o = img._row_length;
 	int row_n = row_o * scaling_factor;
 	int col_n = col_o * scaling_factor;
 
@@ -16,7 +16,8 @@ void nearestNeighborInterpolation(Image& img, int scaling_factor) {
 	for (int row_idx = 0; row_idx < row_n; ++row_idx) {
 		vector<int> row(col_n);
 		for (int col_idx = 0; col_idx < col_n; ++col_idx) {
-			row[col_idx] = img._img[row_idx / scaling_factor][col_idx / scaling_factor];
+			row[col_idx] = 
+				img._img[row_idx / scaling_factor][col_idx / scaling_factor];
 		}
 		v.push_back(move(row));
 	}
@@ -36,5 +37,5 @@ void linearInterpolation(Image& img, int row, int col) {
 
 }
 
-void bilinearInterpolation(Image& img) {
+void bilinearInterpolation(Image& img) { 
 }
