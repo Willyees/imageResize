@@ -16,7 +16,7 @@ void Timing::end() {
 
 double Timing::getTime() {
 	assert(start_.time_since_epoch() <= end_.time_since_epoch() && "start time is not lower than end time");
-	chrono::duration<double> time_diff = start_ - end_;
+	chrono::duration<double> time_diff = end_ - start_;
 	return time_diff.count();
 }
 

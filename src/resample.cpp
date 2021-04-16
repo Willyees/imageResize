@@ -42,12 +42,12 @@ void nearestNeighborInterpolation(Image& img, int scaling_factor) {
 				for (size_t scale_col = 0; scale_col < scaling_factor; ++scale_col) {//scale_col is mostly a counter, iterating number of times needed to get next elements in same row (but different column)
 					size_t col_2d = scale_col + idx_first_scaled_col;
 					size_t idx_scaled = row_2d * img._row_length * scaling_factor + col_2d;
-					cout << idx_scaled << "\t";
+					//cout << idx_scaled << "\t";
 					img_scaled._img[idx_scaled] = val;
 					//cout << idx_scaled << endl;
 				}
 			}
-			cout << endl;
+			//cout << endl;
 
 		}
 	}
