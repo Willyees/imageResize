@@ -1,5 +1,7 @@
 #pragma once
 #include <chrono>
+#include <string>
+#include <fstream>
 
 using time_hres = std::chrono::time_point<std::chrono::high_resolution_clock>;
 
@@ -16,4 +18,6 @@ public:
 	void reset();
 	time_hres getStart() { return start_; }
 	time_hres getEnd() { return end_; }
+
+	void writeToFileTime(std::string header = "", const std::string path = "timing.txt", std::ios_base::openmode write = std::ios::app, char endline = '\n');
 };
