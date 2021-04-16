@@ -33,8 +33,8 @@ void Image::load_test_img2x2() {
 	//_img = { {1,2,3,4}, {5,6,7,8}, {9,10,11,12} };
 }
 
-void Image::load_test_img3x2() {
-	_img = { {1,4}, {6, 8}, {13, 19} };
+void Image::load_test_img2x3() {
+	_img = { {1,4, 6}, {8, 13, 19} };
 	_row_length = 3;
 	_col_length = 2;
 }

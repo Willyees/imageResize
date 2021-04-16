@@ -1,4 +1,6 @@
 #include <assert.h>
+#include <iostream>
+#include <fstream>
 #include "timing.h"
 using namespace std;
 
@@ -23,4 +25,27 @@ double Timing::getTime() {
 void Timing::reset() {
 	start_ = time_hres();
 	end_ = time_hres();
+}
+
+/* utility for writing times to a file 
+* @path doesnt expect extension of the file, will set it based on the endline
+* @header optional, if different from default value will only write the header and not the time
+can use the openmode to set append or delete all content before writing */
+void Timing::writeToFileTime(string header, const std::string path, std::ios_base::openmode write_mode, char endline) {
+	fstream file;
+	string extension_file = "";
+	switch (endline) {
+		case ',':
+			extension_file = "csv";
+			break;
+		default:
+			extension_file = "txt";
+			break;
+	}
+	file.open(path + "." + extension_file, write_mode);
+	if (header != "")
+		file << header << endline;
+	else
+		file << getTime() << endl;
+	file.close();
 }
