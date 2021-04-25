@@ -7,6 +7,7 @@ using namespace std;
 
 int main() {
 	Timing t;
+	t.writeToFileTime("timing 1d 2x3 scaling 1000");
 	for (int i = 0; i < 10; ++i) {
 		Image img;
 		img.load_test_img2x3();
@@ -14,9 +15,10 @@ int main() {
 		nearestNeighborInterpolation(img, 1000);
 		//img.print_img();
 		t.end();
-		cout << t.getTime() << endl;
+		t.writeToFileTime();
 		t.reset();
 	}
+	t.writeToFileTime("timing 1d 2x2 scaling 1000");
 
 	for (int i = 0; i < 10; ++i) {
 		Image img;
@@ -25,7 +27,7 @@ int main() {
 		nearestNeighborInterpolation(img, 1000);
 		//img.print_img();
 		t.end();
-		cout << t.getTime() << endl;
+		t.writeToFileTime();
 		t.reset();
 	}
 
