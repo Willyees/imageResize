@@ -1,4 +1,7 @@
--time speed improvement using move() in nearestNeighborInterpolation()
--time speed improvement changing the basic structure of _img from vec<vec<>> to a single vec<> which should have all the values in contiguous memory, so faster look up
 -use rgb instead of mock int for each pixel, or whatever should be used
 -testing. may be find different testing suite other than google test.
+
+
+DONE
+-time speed improvement using move() in nearestNeighborInterpolation()
+-time speed improvement changing the basic structure of _img from vec<vec<>> to a single vec<> which should have all the values in contiguous memory, so faster look up
